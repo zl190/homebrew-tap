@@ -16,6 +16,8 @@ cask "hijack" do
   # Not notarized; signed with a fixed self-signed identity so the Accessibility grant survives updates.
   postflight_steps do
     run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{appdir}}/Hijack.app"]
+    # brew quits Hijack to upgrade it; start it again (a fresh install opens it the first time too)
+    run "/usr/bin/open", args: ["{{appdir}}/Hijack.app"], must_succeed: false
   end
 
   uninstall quit: "com.zl190.hijack"
