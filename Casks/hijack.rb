@@ -16,10 +16,6 @@ cask "hijack" do
   # Not notarized; signed with a fixed self-signed identity so the Accessibility grant survives updates.
   postflight_steps do
     run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{appdir}}/Hijack.app"]
-    # brew quits Hijack to upgrade it; start it again (a fresh install opens it the first time too)
-    # (LaunchServices can refuse the first open right after the bundle is replaced, so retry)
-    run "/bin/sh", args: ["-c", "for i in 1 2 3; do sleep 2; /usr/bin/open \"$0\" && exit 0; done; exit 1",
-                          "{{appdir}}/Hijack.app"], must_succeed: false, print_stderr: false
   end
 
   uninstall quit: "com.zl190.hijack"
@@ -29,5 +25,5 @@ cask "hijack" do
     "~/Library/Preferences/com.zl190.hijack.plist",
   ]
 
-  caveats "Allow Hijack in System Settings > Privacy & Security > Accessibility."
+  caveats "Open Hijack after installing or upgrading. Allow it in System Settings > Privacy & Security > Accessibility."
 end
