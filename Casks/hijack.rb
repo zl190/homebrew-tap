@@ -25,5 +25,5 @@ cask "hijack" do
     "~/Library/Preferences/com.zl190.hijack.plist",
   ]
 
-  caveats "Open Hijack after installing or upgrading. Allow it in System Settings > Privacy & Security > Accessibility."
+  caveats "Open Hijack after installing or upgrading, then allow it in Privacy & Security > Accessibility."
 end
