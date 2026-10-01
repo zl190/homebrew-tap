@@ -15,7 +15,7 @@ cask "hijack" do
 
   # Not notarized; signed with a fixed self-signed identity so the Accessibility grant survives updates.
   postflight_steps do
-    run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{appdir}/Hijack.app"]
+    run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{appdir}}/Hijack.app"]
   end
 
   uninstall quit: "com.zl190.hijack"
