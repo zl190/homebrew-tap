@@ -1,6 +1,6 @@
 cask "hijack" do
-  version "1.1.0"
-  sha256 "6330e9a378aeaf22ed571b1f794181e73f472ba11deb3367d032d57ffae24bca"
+  version "1.1.1"
+  sha256 "b2faa2998ac7972c1ff5f45662223599349fd5ce3caebeb385e74407ee2d1043"
 
   url "https://github.com/zl190/hijack/releases/download/v#{version}/Hijack.zip"
   name "Hijack"
@@ -25,5 +25,5 @@ cask "hijack" do
     "~/Library/Preferences/com.zl190.hijack.plist",
   ]
 
-  caveats "Open Hijack after installing or upgrading, then allow it in Privacy & Security > Accessibility."
+  caveats "Open Hijack once, then allow it in Privacy & Security > Accessibility. Updates reopen it."
 end
