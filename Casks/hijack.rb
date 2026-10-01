@@ -17,7 +17,9 @@ cask "hijack" do
   postflight_steps do
     run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{appdir}}/Hijack.app"]
     # brew quits Hijack to upgrade it; start it again (a fresh install opens it the first time too)
-    run "/usr/bin/open", args: ["{{appdir}}/Hijack.app"], must_succeed: false
+    # (LaunchServices can refuse the first open right after the bundle is replaced, so retry)
+    run "/bin/sh", args: ["-c", "for i in 1 2 3; do sleep 2; /usr/bin/open \"$0\" && exit 0; done; exit 1",
+                          "{{appdir}}/Hijack.app"], must_succeed: false, print_stderr: false
   end
 
   uninstall quit: "com.zl190.hijack"
