@@ -1,6 +1,6 @@
 cask "hijack" do
-  version "1.1.1"
-  sha256 "b2faa2998ac7972c1ff5f45662223599349fd5ce3caebeb385e74407ee2d1043"
+  version "1.1.2"
+  sha256 "ba0e95c77240f344907a1171cb2436326058d407e191160c38429651d1f65e49"
 
   url "https://github.com/zl190/hijack/releases/download/v#{version}/Hijack.zip"
   name "Hijack"
